@@ -1,0 +1,56 @@
+/*---------------------------------------------------------------*/
+/* MNKY Theme preview plugin
+/*---------------------------------------------------------------*/
+
+/* Toggle */
+.mtp-open{width:40px; padding:10px 0;	background:#e74c3c; position:fixed; top:160px; right:0; text-align:left; font-size:18px; color:#fff; line-height:1; cursor:pointer; z-index:9999; border-top-left-radius: 3px; border-bottom-left-radius: 3px; transition:right 200ms linear 400ms, width 100ms linear 0ms;}
+.mtp-open i{padding-left:13px; cursor:pointer;}
+.mtp-open:hover{width:45px;}
+.mtp-open.mtp-active{right:-45px; transition:right 200ms linear 0ms;}
+
+/* Wrapper */
+#mtp-wrapper{ width:190px; 	min-height:240px; background:#fff; position:fixed; top:160px; right:-200px; z-index:9999; border-radius: 3px; box-shadow:0px 2px 15px 3px rgba(0, 0, 0, 0.08); transition:right 200ms ease-in 0ms;}
+#mtp-wrapper.mtp-active{right:5px; visibility:visible; transition:right 200ms ease-in 100ms;}
+
+/* Wrapper content */
+#mtp-wrapper #mtp-header{padding:10px 20px; font-size: 16px; background: #7C7C7C; color:#fff; font-weight:400; border-top-left-radius: 3px; border-top-right-radius: 3px;}
+#mtp-wrapper #mtp-header i{float:right; margin-top: 5px; cursor:pointer; opacity:1; transition:opacity 0.2s;}
+#mtp-wrapper #mtp-header i:hover{opacity:0.8;}
+#mtp-content{ padding:15px 20px 20px; font-size:12px;}
+.mtp-content-title{ padding:0 0 10px; line-height:1;}
+.mtp-divider {width:100%; height:1px; margin:0 0 29px;}
+
+/* Width select */
+.mtp-layout-width-select{ margin:0; padding:0;}
+.mtp-layout-width-select li{display:inline-block; list-style:none; line-height:1; width:45px; padding:6px 0px;  text-align:center; margin-right:3px; background:#f7f7f7; border-radius:2px; cursor:pointer}
+.mtp-layout-width-select li.on{color:#fff; background:#00A3D9;}
+
+/* On/off switch */
+.mtp-toggle {width: 32px; border-radius: 10px; height: 14px; background-color: #DDD; position: relative; margin: 10px 0 0; -moz-user-select: none; -khtml-user-select: none; -webkit-user-select: none; user-select: none;}
+.mtp-toggle:after { border-radius: 100%; background-color: #ADADAD; position: absolute; left: 0; top: -2px; width: 18px; height: 18px; content: ''; box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.15); -webkit-transform: translate(0); transform: translateX(0); transition: all 0.2s ease-in-out; -webkit-transition: all 0.2s ease-in-out;}
+
+.mtp-toggle > span {margin-left: 56px; position: relative; top: -3px; font-weight: 400; white-space: nowrap; display: block; cursor: pointer;}
+
+.mtp-toggle:hover {cursor: pointer;}
+.mtp-toggle:hover span {cursor: pointer;}
+.mtp-toggle.on {background-color:#8CE2FF;}
+.mtp-toggle.on:hover span {cursor: pointer;}
+.mtp-toggle.on:after { background-color: #00A3D9; -webkit-transform: translate(14px); transform: translateX(14px);}
+
+/* Patterns */
+.mtp-background-image {margin:0; padding:0; list-style:none; margin-right:-8px;}
+.mtp-background-image li {display:inline-block; width:25px; height:25px; margin-right:4px; border-radius:50%; background:#eee; cursor:pointer;}
+.mtp-background-image li.bridge {background:url('../images/bridge-icon.png') center;}
+.mtp-background-image li.brooklyn {background:url('../images/brooklyn-icon.png') center;}
+.mtp-background-image li.city {background:url('../images/city-icon.png') center;}
+.mtp-background-image li.trees{background:url('../images/trees-icon.png') center;}
+.mtp-background-image li.pattern {background:url('../images/pattern.png') center;}
+
+body.background-pattern{ background-repeat:repeat; background-position: center; background-attachment:scroll;}
+body.background-img{background-size:cover; background-attachment:fixed;}
+
+#wrapper.boxed-layout{box-shadow: 0 0 20px rgba(0, 0, 0, 0.3); -moz-box-shadow: 0 0 20px rgba(0, 0, 0, 0.3); -webkit-box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);}
+
+@media only screen and (max-width: 767px) {
+	#mtp-wrapper, .mtp-open {display:none!important;}
+}
