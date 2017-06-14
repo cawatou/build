@@ -293,7 +293,7 @@ p.demo_store{position:fixed; top:0; left:0; right:0; margin:0; width:100%; font-
  .related ul.products li.product img, .related ul li.product img, .upsells.products ul.products li.product img, .upsells.products ul li.product img,-page .related ul.products li.product img,-page .related ul li.product img,-page .upsells.products ul.products li.product img,-page .upsells.products ul li.product img{width:100%; height:auto}
 
  .product-col-3 ul.products li.product,-page .product-col-3 ul.products li.product{float:left; margin:0 0.2% 0.2% 0; padding:0; position:relative; width:33.2%}
- .product-col-4 ul.products li.product,-page .product-col-4 ul.products li.product{float:left; margin:0 0.2% 0.2% 0; padding:0; position:relative; width:24.79%}
+ .product-col-4 ul.products li.product,-page .product-col-4 ul.products li.product{float:left; margin:0 0.2% 0.2% 0; padding:0; position:relative; width:24.79%; height: 350px;}
 
  span.onsale,-page span.onsale{min-height:40px; min-width:40px; padding:4px; font-size:12px; font-weight:bold; position:absolute; left:10px; top:10px; text-align:center; line-height:40px; background:#ff614b; color:#fff; box-sizing:content-box; border-radius:40px; border-radius:50%; box-shadow:0px 2px 7px 0px rgba(0,0,0,0.16);}
  ul.products li.product .onsale,-page ul.products li.product .onsale{top:10px; right:10px; left:auto;}

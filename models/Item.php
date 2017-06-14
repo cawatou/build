@@ -45,13 +45,13 @@ class Item extends \yii\db\ActiveRecord
     {
         return [
             'id' => 'ID',
-            'cat_id' => 'Cat ID',
-            'color' => 'Color',
-            'size' => 'Size',
+            'cat_id' => 'Категория',
+            'color' => 'Цвет',
+            'size' => 'Размер',
             'price' => 'Цена',
-            'img' => 'Img',
-            'title' => 'Title',
-            'unit' => 'Unit',
+            'img' => 'Изображение',
+            'title' => 'Название',
+            'unit' => 'unit',
         ];
     }
 }

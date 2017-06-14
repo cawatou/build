@@ -54,3 +54,14 @@ body.background-img{background-size:cover; background-attachment:fixed;}
 @media only screen and (max-width: 767px) {
 	#mtp-wrapper, .mtp-open {display:none!important;}
 }
+
+.pre-content {
+	background-color: #e2e2e2;
+	background-image: url('/images/contact-image.jpg');
+	background-position: center center;
+	background-size: cover;
+}
+
+div.product p.price {
+	color: #e74c3c;
+}

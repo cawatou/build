@@ -65,9 +65,9 @@ desired effect
         <!-- Logo -->
         <a href="/" class="logo">
             <!-- mini logo for sidebar mini 50x50 pixels -->
-            <span class="logo-mini"><img src="/images/logo.png" alt=""></span>
+            <span class="logo-mini"><img src="/images/craftsman_logo.png" alt=""></span>
             <!-- logo for regular state and mobile devices -->
-            <span class="logo-lg"><img src="/images/logo.png" alt=""></span>
+            <span class="logo-lg"><img src="/images/craftsman_logo.png" alt=""></span>
         </a>
 
         <!-- Header Navbar -->

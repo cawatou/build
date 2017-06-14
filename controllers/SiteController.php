@@ -54,7 +54,7 @@ class SiteController extends AppController{
     public function actionIndex(){
         $cat_model = Category::find()->all();
         $item_model = Item::find()->all();
-        $main_page = Page::findOne(4);
+        $main_page = Page::findOne(1);
         $slider_model = MainSlider::find()->all();
         
         return $this->render('index', [            
@@ -66,31 +66,8 @@ class SiteController extends AppController{
     }
 
     public function actionAbout(){
-        $model = Page::findOne(1);
-        return $this->render('about', [
-            'model' => $model,
-        ]);
-    }
-
-    
-    public function actionDiscount(){
         $model = Page::findOne(2);
-        return $this->render('discount', [
-            'model' => $model,
-        ]);
-    }
-    
-    public function actionDelivery(){
-        $model = Page::findOne(3);
-        return $this->render('delivery', [
-            'model' => $model,
-        ]);
-    }
-
-    
-    public function actionGrade(){
-        $model = Page::findOne(5);
-        return $this->render('grade', [
+        return $this->render('about', [
             'model' => $model,
         ]);
     }
@@ -99,9 +76,11 @@ class SiteController extends AppController{
     public function actionGallery(){
         $gcat_model = GalleryCat::find()->all();
         $gallery_model = Gallery::find()->all();
+        $page = Page::findOne(3);
         return $this->render('gallery', [
             'gcat_model' => $gcat_model,
             'gallery_model' => $gallery_model,
+            'page' => $page,
         ]);
     }
 /*
@@ -131,6 +110,7 @@ class SiteController extends AppController{
     public function actionContacts(){
         $contact_model = Contacts::find()->one();
         $model = new ContactForm();
+        $page = Page::findOne(4);
         if ($model->load(Yii::$app->request->post()) && $model->sendEmail(Yii::$app->params['adminEmail'])) {
             Yii::$app->session->setFlash('contactFormSubmitted');
 
@@ -139,6 +119,7 @@ class SiteController extends AppController{
         return $this->render('contact', [
             'model' => $model,
             'contact_model' => $contact_model,
+            'page' => $page,
         ]);
     }
 

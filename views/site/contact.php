@@ -13,97 +13,134 @@ $this->params['breadcrumbs'][] = $this->title;
 ?>
 <?//if(isset($contact_model)) echo "<pre>".print_r($contact_model, 1)."</pre>";?>
 
-  <section id="subheader" data-stellar-background-ratio=".3">
-            <div class="container">
-                <div class="row">
-                    <div class="col-md-12">
-                        <h1><?=$this->title?></h1>
-                        <div class="small-border-deco"><span></span></div>
-                        <ul class="crumb">
-                            <li><a href="/">Главная</a></li>
-                            <li class="sep"></li>
-                            <li><?=$this->title?></li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-        </section>
-        <!-- subheader close -->
+<div class="pre-content" style="height:400px">
 
-        <!-- content begin -->
+
+</div><!-- .pre-content -->
+
+
+<div id="main" class="clearfix">
+    <div id="container" class="no-sidebar">
         <div id="content">
 
 
-            <div class="container">
-                <div class="row">
-                    <div class="col-md-8">
-                        <div class="de_tab tab_style_2">                           
-
-                            <div class="de_tab_content tc_style-1">
-
-                                <div id="tab1">
-	  
-                                    <div class="row">
-					<?if(isset($contact_model)):?>
-					    <div class="col-md-6">
-						<div class="map-container">
-						    <?=$contact_model->map?>						    
-						</div>
-					    </div>
-
-					    <div class="col-md-6">
-
-						<address class="address-style-2">
-						    <span><strong>Адрес:</strong><?=$contact_model->address?></span>
-						    <span><strong>Телефон:</strong><?=$contact_model->phone?></span>
-						    <span><strong>Email:</strong><a href="mailto:<?=$contact_model->email?>"><?=$contact_model->email?></a></span>						    
-						</address>
-					    </div>
-					<?endif?>    
+            <article id="post-136" class="clearfix post-136 page type-page status-publish hentry" role="article">
+                <div class="entry-content clearfix">
+                    <section class="wpb_row main_row  no-seperator" style="padding-top:70px; padding-bottom:35px;">
+                        <div class="row-inner row-inner-fixed">
+                            <div class="wpb_column vc_column_container vc_col-sm-12">
+                                <div class="vc_column-inner ">
+                                    <div class="wpb_wrapper">
+                                        <div class="wpb_text_column wpb_content_element ">
+                                            <div class="wpb_wrapper">
+                                                <h2><?=$page->title?></h2>
+                                                <p><?=$page->description?></p>
+                                            </div>
+                                        </div>
                                     </div>
-
-                                </div>                              
-
+                                </div>
                             </div>
-
                         </div>
-                    </div>
+                    </section>
+                    <section class="wpb_row main_row  no-seperator" style="padding-top:35px; padding-bottom:70px;">
+                        <div class="row-inner row-inner-fixed">
+                            <div class="wpb_column vc_column_container vc_col-sm-4">
+                                <div class="vc_column-inner vc_custom_1426022446972">
+                                    <div class="wpb_wrapper">
+                                        <div class="custom-list-item"><i class="fa fa-clock-o"
+                                                                         style="color:#e74c3c"></i><span
+                                                style="text-transform: uppercase;">Часы работы</span></div>
+                                        <div class="vc_empty_space" style="height: 5px"><span
+                                                class="vc_empty_space_inner"></span></div>
 
-                    <div class="col-md-4">
-                        <div class="padding30" data-bgcolor="#f5f5f5">
+                                        <div class="wpb_text_column wpb_content_element ">
+                                            <div class="wpb_wrapper">
+                                                <p><strong>Понедельник: </strong>с 9.00 до 18.00<br/>
+                                                    <strong>Вторник: </strong>с 9.00 до 18.00<br/>
+                                                    <strong>Среда: </strong>с 9.00 до 18.00<br/>
+                                                    <strong>Четверг: </strong>с 9.00 до 18.00<br/>
+                                                    <strong>Пятница: </strong>с 9.00 до 18.00<br/>
+                                                    <strong>Суббота: </strong>с 9.00 до 15.00<br/>
+                                                    <strong>Воскресенье: </strong>Выходной</p>
 
-                            <h3>Напишите нам
-				<span class="tiny-border"></span>
-                            </h3>
-                            <form id="feedback" action="/feedback" method="post" role="form">
-				<div class="form-group field-contactform-name required">
-				    <label class="control-label" for="contactform-name">Имя</label>
-				    <input type="text" id="contactform-name" class="form-control" name="name" autofocus="">
-				</div>
-				<div class="form-group field-contactform-name required">
-				    <label class="control-label" for="contactform-phone">Телефон</label>
-				    <input type="text" id="contactform-phone" class="form-control" name="phone" autofocus="">
-				</div>
-				<div class="form-group field-contactform-name required">
-				    <label class="control-label" for="contactform-phone">Email</label>
-				    <input type="text" id="contactform-email" class="form-control" name="email" autofocus="">
-				</div>
-				<div class="form-group field-contactform-name required">
-				    <label class="control-label" for="contactform-phone">Сообщение</label>
-				    <textarea id="contactform-body" class="form-control" name="comment" width="100%"></textarea>
-				</div>
-				<div class="modal-footer">
-				    <input type="submit" value="Отправить" class="btn btn-line">
-				</div>
-			    </form>
-				
+                                            </div>
+                                        </div>
+                                        <div class="vc_empty_space" style="height: 60px"><span
+                                                class="vc_empty_space_inner"></span></div>
+                                        <div class="custom-list-item"><i class="fa fa-home"
+                                                                         style="color:#e74c3c"></i><span
+                                                style="text-transform: uppercase;">Наш адрес</span></div>
+                                        <div class="vc_empty_space" style="height: 5px"><span
+                                                class="vc_empty_space_inner"></span></div>
+
+                                        <div class="wpb_text_column wpb_content_element ">
+                                            <div class="wpb_wrapper">
+                                                <p><?=$contact_model->address?><br/>
+                                                    <strong>Тел: </strong><?=$contact_model->phone?><br/>
+                                                    <strong>Email: </strong><a href="mailto:<?=$contact_model->email?>&lt;/"><?=$contact_model->email?></a><br/>
+                                                </p>
+
+                                            </div>
+                                        </div>
+                                        <div class="vc_empty_space" style="height: 60px"><span
+                                                class="vc_empty_space_inner"></span></div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="wpb_column vc_column_container vc_col-sm-8">
+                                <div class="vc_column-inner ">
+                                    <div class="wpb_wrapper">
+                                        <div role="form" class="wpcf7" id="wpcf7-f6-p136-o1" lang="en-US" dir="ltr">
+                                            <div class="screen-reader-response"></div>
+                                            <form class="wpcf7-form">
+                                                <p>
+                                                    <span class="wpcf7-form-control-wrap your-name">
+                                                        <input type="text"
+                                                          name="your-name"
+                                                          value=""
+                                                          size="40"
+                                                          class="wpcf7-form-control wpcf7-text wpcf7-validates-as-required"
+                                                          aria-required="true"
+                                                          aria-invalid="false"
+                                                          placeholder="Ваше имя"/>
+                                                    </span>
+                                                </p>
+                                                <p>
+                                                    <span class="wpcf7-form-control-wrap your-email">
+                                                        <input type="email"
+                                                           name="your-email"
+                                                           value=""
+                                                           size="40"
+                                                           class="wpcf7-form-control wpcf7-text wpcf7-email wpcf7-validates-as-required wpcf7-validates-as-email"
+                                                           aria-required="true"
+                                                           aria-invalid="false"
+                                                           placeholder="Ваш Email"/>
+                                                    </span>
+                                                </p>                                                
+                                                <p><span class="wpcf7-form-control-wrap your-message"><textarea
+                                                            name="your-message" cols="40" rows="10"
+                                                            class="wpcf7-form-control wpcf7-textarea"
+                                                            aria-invalid="false"
+                                                            placeholder="Сообщение"></textarea></span>
+                                                </p>
+                                                <p><input type="submit" value="Отправить"
+                                                          class="wpcf7-form-control wpcf7-submit"/></p>
+                                                <div class="wpcf7-response-output wpcf7-display-none"></div>
+                                            </form>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
-                    </div>
+                    </section>
+                </div><!-- .entry-content -->
+            </article>
 
 
-                </div>
-            </div>
-        </div>
+        </div><!-- #content -->
+    </div><!-- #container -->
+
+</div><!-- #main  -->
 
 
 

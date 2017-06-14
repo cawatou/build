@@ -19,7 +19,7 @@ use dosamigos\ckeditor\CKEditor;
 
    
 
-    <?= $form->field($model, 'name')->textInput(['maxlength' => true]) ?>
+    <?= $form->field($model, 'title')->textInput(['maxlength' => true]) ?>
 
     <?= $form->field($model, 'cat_id')->dropDownList($options);?>
 
@@ -29,25 +29,17 @@ use dosamigos\ckeditor\CKEditor;
 	<i class="fa fa-picture-o fa-6" aria-hidden="true"></i>
     <?endif;?>
     <?=$form->field($file_model, 'imageFile')->fileInput()->label('[изменить]');?><br>   
-   
-    <?= $form->field($model, 'manufacturer')->textInput(['maxlength' => true]) ?>
 
-    <?= $form->field($model, 'wood')->textInput(['maxlength' => true]) ?>
 
-    <?= $form->field($model, 'wet')->textInput(['maxlength' => true]) ?>
+    <?= $form->field($model, 'color')->textInput(['maxlength' => true]) ?>
 
     <?= $form->field($model, 'size')->textInput(['maxlength' => true]) ?>
 
-    <?= $form->field($model, 'grade')->textInput(['maxlength' => true]) ?>
+    <?= $form->field($model, 'unit')->textInput(['maxlength' => true]) ?>
 
     <?= $form->field($model, 'price')->textInput(['maxlength' => true]) ?>
     
     <?= $form->field($model, 'title')->textInput(['maxlength' => true]); ?>
-      
-    <?= $form->field($model, 'description')->widget(CKEditor::className(), [
-        'options' => ['rows' => 6],
-        'preset' => 'full'
-    ]) ?>
 
     <div class="form-group">
         <?= Html::submitButton($model->isNewRecord ? 'Сохранить' : 'Сохранить', ['class' => $model->isNewRecord ? 'btn btn-success' : 'btn btn-primary']) ?>

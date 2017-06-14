@@ -1,114 +1,122 @@
 <?php
 /* @var $this yii\web\View */
-
 use yii\helpers\Html;
-
-$this->title = $item_model->name;
-$this->params['breadcrumbs'][] = $this->title;
+foreach($cat_model as $cat){
+	$category[$cat->id] = $cat->name;
+}
 ?>
-<?if(isset($item_model)):?>
-    <section id="subheader" data-stellar-background-ratio=".3">
-	<div class="container">
-	    <div class="row">
-		<div class="col-md-12">
-		    <h1><?=$this->title?></h1>
-		    <div class="small-border-deco"><span></span></div>
-		    <ul class="crumb">
-			<li><a href="/">Главная</a></li>
-			<li class="sep"></li>
-			<li><?=$this->title?></li>
-		    </ul>
+<?if(isset($item_model)):
+	//echo "<pre>".print_r($cat_model, 1)."</pre>";
+	$this->title = $item_model->title;
+	$this->params['breadcrumbs'][] = $this->title;?>
+	<div class="page-header">
+		<div class="row-inner">
+			<h1 class="page-title"><?=$this->title?></h1>
+			<nav class="breadcrumbs-trail" role="navigation">
+				<a href="/" class="home">Главная</a> 
+				<span class="breadcrumbs-separator">/</span> 
+				<a href="/catalog/" title="Products">Каталог</a> 
+				<span class="breadcrumbs-separator">/</span> <?=$this->title?>
+			</nav>			
 		</div>
-	    </div>
-	</div>
-    </section>
-    <!-- subheader close -->
-
-    <!-- content begin -->
-    <div id="content">
-	<div class="container">
-	    <div class="row detail_item">
-		<div id="sidebar" class="col-md-3">
-		    <div class="widget widget_category">
-			<h4>Каталог</h4>
-			<ul>
-			    <?if(isset($cat_model)):?>
-				<?foreach($cat_model as $cat):?>
-				    <li class='parent_cat'>
-					<a href="/catalog/<?=$cat->link?>"><?=$cat->name?></a>
-					<ul>
-					    <?foreach($all_item as $item):?>
-						<?if($item->cat_id == $cat->id):?>
-						    <li class='chld_cat'><a href="/catalog/<?=$cat->link?>/<?=$item->id?>"><?=$item->name?></a></li>
-					        <?endif?>     
-					    <?endforeach?>	
-					</ul>
-				    </li>
-				<?endforeach?>	
-			    <?endif?>
-			</ul>
-		    </div>
-		</div>
-		<div class="col-md-9">
-		    <div class="row">
-			<div class="products item">
-			    <?if(isset($item_model)):?>				
-				<div class="col-md-5 product">
-				    <h4><?=$item_model->name?></h4>
-				    <span class="tiny-border"></span>
-				    <figure class="item_img">
-					<?if($item_model->img != 'none'):?>
-					    <img src="<?=$item_model->img?>" class="item_img" alt="">
-					<?else:?>
-					    <img src="/upload/noimage.png" class="item_img" alt="">
-					<?endif?>
-				    </figure>													    
-				</div>
-				<div class="col-md-7 tech_block">
-				    <p class="tech_prop">Технические характеристики</p>
-				    <?if(isset($item_model->manufacturer)):?>
-					<span class="prop col-md-6">Производитель: </span><span class="col-md-6"><?=$item_model->manufacturer?></span>
-				    <?endif?>
-				    <?if(isset($item_model->wood)):?>
-					<span class="prop col-md-6">Порода дерева: </span><span class="col-md-6"><?=$item_model->wood?></span>
-				    <?endif?>
-				    <?if(isset($item_model->wet)):?>
-					<span class="prop col-md-6">Влажность : </span><span class="col-md-6"><?=$item_model->wet?></span>
-				    <?endif?>
-				    <?if(isset($item_model->size)):
-					$sizes = explode(',', $item_model->size);?>
-					<span class="prop col-md-6">Размеры: </span><span class="col-md-6">					
-					    <?foreach($sizes as $size):?>
-						<?=$size?><br>
-					    <?endforeach?>    
-					</span>    
-				    <?endif?>
-				    <?if(isset($item_model->grade)):?>
-					<span class="prop col-md-6">Сортность: </span><span class="col-md-6"><?=$item_model->grade?></span>
-				    <?endif?>
-				    <?if(isset($item_model->price)):?>
-					<span class="prop col-md-6">Стоимость: </span><span class="col-md-6"><?=$item_model->price?></span>
-				    <?endif?>
-				    <input type="submit" data-value='<?=$item_model->name?>' data-id='<?=$item->id?>' id="send_message" value="Отправить заявку" class="btn btn-line btn-add_to_cart">
-				</div>
-			    <?endif?>                               
-			</div>
-
-
-		    </div>
-		</div>
-
-		<div class="col-md-12">
-		    <h2><?=$item_model->title?><span class="tiny-border"></span></h2>
-		    <div class="text_descr"><?=$item_model->description?></div>
-		</div>
-
-	    </div>
 	</div>
 
 
+	<div id="main" class="clearfix">
+		<div id="container" class="row-inner">
+			<div id="content" class="shop-template product-col-4">
+				<article class="clearfix product type-product status-publish has-post-thumbnail shipping-taxable purchasable product-type-simple">
+					<div class="entry-content clearfix">
+						<div class="product shipping-taxable purchasable product-type-simple">
+							<div class="woocommerce-product-gallery woocommerce-product-gallery--with-images woocommerce-product-gallery--columns-4 images"
+								style="opacity: 1; transition: opacity 0.25s ease-in-out;">
+								<figure class="woocommerce-product-gallery__wrapper">
+									<div class="woocommerce-product-gallery__image">
+										<img
+											width="1000" height="1000"
+											src="/images/shop/11.jpg"
+											class="attachment-shop_single size-shop_single wp-post-image" alt=""
+											title=""
+											sizes="(max-width: 1000px) 100vw, 1000px">
+									</div>									
+								</figure>
+							</div>
 
-    </div>
+							<div class="summary entry-summary">
+								<h1 class="product_title entry-title"><?=$item_model->title?></h1>
+								<p class="price">
+									<span class="woocommerce-Price-amount amount">
+										<span class="woocommerce-Price-currencySymbol"></span><?=$item_model->price?> руб./<?=$item_model->unit?>
+									</span>
+								</p>
+								<div class="woocommerce-product-details__short-description">
+									<?if(isset($item_model->color)):?><p>Цвет: <?=$item_model->color?></p><?endif?>
+									<?if(isset($item_model->size)):?><p>Размер: <?=$item_model->size?></p><?endif?>
+									<p>Категория: <?=$category[$item_model->cat_id]?></p>
+								</div>
+							</div>
+
+							<div class="woocommerce-tabs wc-tabs-wrapper">								
+								<div
+									class="woocommerce-Tabs-panel woocommerce-Tabs-panel--reviews panel entry-content wc-tab"
+									id="tab-reviews" role="tabpanel" aria-labelledby="tab-title-reviews"
+									style="display: block;">
+									<div id="reviews" class="woocommerce-Reviews">
+													
+
+										<div id="review_form_wrapper">
+											<div id="review_form">
+												<div id="respond" class="comment-respond">
+													<form  class="comment-form anti-spam-form-processed">
+														<p class="comment-form-comment">
+															<label for="comment">
+																Оформить заказ
+																<span class="required"></span>
+															</label>
+															<textarea
+																id="comment" name="comment" cols="40" rows="8"
+																aria-required="true" required="" placeholder="Комментарий">
+																
+															</textarea>
+														</p>
+														<p class="comment-form-author">
+															<label for="author">
+																Ваше имя 
+																<span class="required">*</span>
+															</label> 
+															<input name="name" type="text" size="30">
+														</p>
+														<p class="comment-form-email">
+															<label for="email">Email 
+																<span class="required"></span>
+															</label> 
+															<input id="email" name="email" type="email">
+														</p>
+														
+														<p class="comment-form-author">
+															<label for="author">
+																Телефон
+																<span class="required">*</span>
+															</label>
+															<input name="phone" type="text" size="30">
+														</p>
+														
+														<p class="form-submit">
+															<input type="submit" id="order" value="Отправить">															
+														</p>
+														
+													</form>
+												</div><!-- #respond -->
+											</div>
+										</div>
+										<div class="clear"></div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div><!-- .entry-content -->
+				</article>
+			</div><!-- #content -->
+		</div><!-- #container -->
+	</div>	
 <?endif?>
-<?//="<pre>".print_r($item_model, 1);?>
-<?//="<pre>".print_r($gallery_model, 1);?>

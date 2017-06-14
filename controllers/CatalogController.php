@@ -44,8 +44,8 @@ class CatalogController extends AppController{
 
     public function actionItem($id){
         $item_model = Item::find()->where(['id'=> $id])->one();
-	$cat_model = Category::find()->all();
-	$all_item = Item::find()->all();
+        $cat_model = Category::find()->all();
+        $all_item = Item::find()->all();
         // Отправка формы из карточки товара
         $form_model = new ContactForm();
         if ($form_model->load(Yii::$app->request->post()) && $form_model->sendEmail(Yii::$app->params['adminEmail'])) {
