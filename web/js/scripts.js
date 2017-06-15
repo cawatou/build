@@ -484,6 +484,9 @@
 		$( 'div.wpcf7 > form' ).wpcf7InitForm();
 	} );
 
+	
+	
+	
 } )( jQuery );
 
 /*
@@ -505,3 +508,31 @@
 
 	window.CustomEvent = CustomEvent;
 } )();
+
+
+jQuery('#order_form').on('submit', function(e){
+	console.log('ttt');
+	e.preventDefault();
+	var name = jQuery('input[name=name]').val(),
+		phone = jQuery('input[name=phone]').val(),
+		email = jQuery('input[name=email]').val(),
+		error = 0,
+		data = jQuery('#order_form').serialize();
+	
+	if(name == '') {
+		error++;
+		alert('Необходимо указать имя для обратной связи');
+	}else if (phone == '' && email == '') {
+		error++;
+		alert('Необходимо указать email или телефон для обратной связи');
+	}
+
+	jQuery.ajax({
+		type: 'post',
+		url: '/ordermail',
+		data: data,
+		success: function(res){
+			console.log(res);
+		}
+	})
+})

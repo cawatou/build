@@ -67,44 +67,30 @@ foreach($cat_model as $cat){
 										<div id="review_form_wrapper">
 											<div id="review_form">
 												<div id="respond" class="comment-respond">
-													<form  class="comment-form anti-spam-form-processed">
+													<form id="order_form">
 														<p class="comment-form-comment">
-															<label for="comment">
-																Оформить заказ
-																<span class="required"></span>
-															</label>
-															<textarea
-																id="comment" name="comment" cols="40" rows="8"
-																aria-required="true" required="" placeholder="Комментарий">
-																
-															</textarea>
+															<label for="comment">Отправить заявку</label><br>
+															<textarea id="comment" name="comment" cols="45" rows="8" maxlength="65525" placeholder="Ваше сообщение"></textarea>
 														</p>
-														<p class="comment-form-author">
-															<label for="author">
-																Ваше имя 
-																<span class="required">*</span>
-															</label> 
-															<input name="name" type="text" size="30">
-														</p>
-														<p class="comment-form-email">
-															<label for="email">Email 
-																<span class="required"></span>
-															</label> 
-															<input id="email" name="email" type="email">
-														</p>
-														
-														<p class="comment-form-author">
-															<label for="author">
-																Телефон
-																<span class="required">*</span>
-															</label>
-															<input name="phone" type="text" size="30">
-														</p>
-														
+														<div class="comment-form-info-fields col_container">
+															<div class="col_3 comment-form-author">
+																<label for="author">Имя</label>
+																<input id="name" name="name" type="text" size="30">
+															</div>
+															<div class="col_3 comment-form-email">
+																<label for="email">Email</label>
+																<input id="email" name="email" type="text" size="30">
+															</div>
+															<div class="col_3 comment-form-url">
+																<label for="url">Телефон</label>
+																<input id="url" name="phone" type="text" size="30">
+															</div>
+														</div>
+														<input type="hidden" name="item_title" value="<?=$item_model->title?>">
+														<br>
 														<p class="form-submit">
-															<input type="submit" id="order" value="Отправить">															
+															<input type="submit" id="sbmt_btn" value="Отправить">
 														</p>
-														
 													</form>
 												</div><!-- #respond -->
 											</div>

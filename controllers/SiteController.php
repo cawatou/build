@@ -23,6 +23,7 @@ use app\models\MailOrders;
 use app\models\Callback;
 use app\models\Feedback;
 use yii\data\Pagination;
+use yii\helpers\Url;
 
 class SiteController extends AppController{
 
@@ -83,29 +84,6 @@ class SiteController extends AppController{
             'page' => $page,
         ]);
     }
-/*
-    public function actionArticles(){
-        $query = Articles::find()->orderBy(['id' => SORT_DESC]);
-        
-        $countQuery = clone $query;
-	$pages = new Pagination(['totalCount' => $countQuery->count(), 'pageSize' => 2]);
-	$article_model = $query->offset($pages->offset)
-	    ->limit($pages->limit)
-	    ->all();
-        return $this->render('articles', [
-            'article_model' => $article_model,
-            'pages' => $pages,
-        ]);
-    }
-    
-    public function actionArticle($id){
-        $article_model = Articles::findOne($id);        
-        
-        return $this->render('article_detail', [
-            'article_model' => $article_model,
-        ]);
-    }
-  */  
     
     public function actionContacts(){
         $contact_model = Contacts::find()->one();
@@ -129,11 +107,11 @@ class SiteController extends AppController{
             $message = $message.'Имя: ' . $_REQUEST['name'];
             
             mail(Yii::$app->params['adminEmail'], "Обратный звонок", $message); 
-	    $model = new Callback();
-	    $model->name = $_REQUEST['name'];
-	    $model->phone = $_REQUEST['phone'];
-	    $model->date = date('Y-m-d H:i:s');
-	    $model->save();
+            $model = new Callback();
+            $model->name = $_REQUEST['name'];
+            $model->phone = $_REQUEST['phone'];
+            $model->date = date('Y-m-d H:i:s');
+            $model->save();
 
             return 'done';
         }else{
@@ -144,21 +122,27 @@ class SiteController extends AppController{
     
     public function actionOrdermail(){
         if(Yii::$app->request->post()){
-	    $message = "Имя: ".$_REQUEST['name'];
-	    $message = $message."\nТелефон: ".$_REQUEST['phone'];
-	    $message = $message."\nEmail: ".$_REQUEST['email']; 
-	    $message = $message."\nСообщение: ".$_REQUEST['comment']; 
-	    $message = $message."\nЗаявка на заказ: ".$_REQUEST['item_name']; 
-           
-	    mail(Yii::$app->params['adminEmail'], "Заявка с сайта", $message); 
-	    $model = new MailOrders();
-	    $model->name = $_REQUEST['name'];
-	    $model->item_id = $_REQUEST['item_id'];
-	    $model->phone = $_REQUEST['phone'];
-	    $model->email = $_REQUEST['email'];
-	    $model->comment = $_REQUEST['comment'];
-	    $model->date = date('Y-m-d H:i:s');
-	    $model->save();
+            $absoluteUrl = Url::home(true);
+            
+            $message = "Имя: ".$_REQUEST['name'];
+            $message = $message."\nТелефон: ".$_REQUEST['phone'];
+            $message = $message."\nEmail: ".$_REQUEST['email'];
+            $message = $message."\nСообщение: ".$_REQUEST['comment'];
+            $message = $message."\nЗаявка на заказ: ".$_REQUEST['item_title'];
+            $message = $message."\nАдрес сайта: ".$absoluteUrl;
+            
+            $headers = 'From: no-replay@webmaster.com';
+            
+            mail(Yii::$app->params['adminEmail'], "Заявка с сайта", $message, $headers);
+            
+        /*  $model = new MailOrders();
+            $model->title = $_REQUEST['name'];
+            $model->item_id = $_REQUEST['item_title'];
+            $model->phone = $_REQUEST['phone'];
+            $model->email = $_REQUEST['email'];
+            $model->comment = $_REQUEST['comment'];
+            $model->date = date('Y-m-d H:i:s');
+            $model->save();*/
 
             return 'done';
         }else{
@@ -169,19 +153,20 @@ class SiteController extends AppController{
     
     public function actionFeedback(){
         if(Yii::$app->request->post()){
-	    $message = "Имя: ".$_REQUEST['name'];
-	    $message = $message."\n Телефон: ".$_REQUEST['phone'];
-	    $message = $message."\n Email: ".$_REQUEST['email']; 
-	    $message = $message."\n Сообщение: ".$_REQUEST['comment']; 
-           
-	    mail(Yii::$app->params['adminEmail'], "Обратная связь", $message); 
-	    $model = new Feedback();
-	    $model->name = $_REQUEST['name'];
-	    $model->phone = $_REQUEST['phone'];
-	    $model->email = $_REQUEST['email'];
-	    $model->comment = $_REQUEST['comment'];
-	    $model->date = date('Y-m-d H:i:s');
-	    $model->save();
+            $message = "Имя: ".$_REQUEST['name'];
+            $message = $message."\n Телефон: ".$_REQUEST['phone'];
+            $message = $message."\n Email: ".$_REQUEST['email']; 
+            $message = $message."\n Сообщение: ".$_REQUEST['comment'];
+    
+            mail(Yii::$app->params['adminEmail'], "Обратная связь", $message);
+    
+             $model = new Feedback();
+            $model->name = $_REQUEST['name'];
+            $model->phone = $_REQUEST['phone'];
+            $model->email = $_REQUEST['email'];
+            $model->comment = $_REQUEST['comment'];
+            $model->date = date('Y-m-d H:i:s');
+            $model->save();
 
             return 'done';
         }else{
@@ -189,4 +174,30 @@ class SiteController extends AppController{
         }
 
     }
+
+
+    /*
+    public function actionArticles(){
+        $query = Articles::find()->orderBy(['id' => SORT_DESC]);
+        
+        $countQuery = clone $query;
+        $pages = new Pagination(['totalCount' => $countQuery->count(), 'pageSize' => 2]);
+        $article_model = $query->offset($pages->offset)
+            ->limit($pages->limit)
+            ->all();
+    
+        return $this->render('articles', [
+            'article_model' => $article_model,
+            'pages' => $pages,
+        ]);
+    }
+    
+    public function actionArticle($id){
+        $article_model = Articles::findOne($id);        
+        
+        return $this->render('article_detail', [
+            'article_model' => $article_model,
+        ]);
+    }
+  */
 }

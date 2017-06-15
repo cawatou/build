@@ -151,10 +151,10 @@ $this->title = 'Главная';
                             <div class="wpb_column vc_column_container vc_col-sm-12">
                                 <div class="vc_column-inner ">
                                     <div class="wpb_wrapper">
-                                        <div class="heading_wrapper" style="text-align:center">
+                                        <div class="heading_wrapper">
                                             <h2><?=$main_page->title?></h2>
                                             <div class="heading_subtitle">
-                                                <?=$main_page->description?>                                            
+                                                <?=$main_page->description?>
                                             </div>
                                         </div>
                                     </div>

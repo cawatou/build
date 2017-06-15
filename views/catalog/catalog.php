@@ -59,5 +59,3 @@ $this->title = 'Каталог товара';
         </div><!-- #content -->
     </div><!-- #container -->
 </div><!-- #main  -->
-<?$url = trim($_SERVER['REQUEST_URI'], '/');?>
-<?echo "<pre>".print_r($url, 1)."</pre>";?>
