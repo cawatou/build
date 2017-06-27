@@ -34,7 +34,7 @@ foreach($cat_model as $cat){
 									<div class="woocommerce-product-gallery__image">
 										<img
 											width="1000" height="1000"
-											src="/images/shop/11.jpg"
+											src="<?=($item_model->img != 'none')? $item_model->img : '/images/shop/11.jpg'?>"
 											class="attachment-shop_single size-shop_single wp-post-image" alt=""
 											title=""
 											sizes="(max-width: 1000px) 100vw, 1000px">

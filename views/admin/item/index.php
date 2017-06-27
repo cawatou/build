@@ -17,13 +17,17 @@ $this->params['breadcrumbs'][] = $this->title;
     <?= GridView::widget([
         'dataProvider' => $dataProvider,
         'columns' => [
-	    'title',
-           
-           
-         
+	        'title',
             'price',
-            // 'img',
-
+            [
+                'label' => 'Картинка',
+                'format' => 'raw',
+                'value' => function($data){
+                    return Html::img(Url::toRoute($data->img),[
+                        'style' => 'width:60px;'
+                    ]);
+                },
+            ],
             ['class' => 'yii\grid\ActionColumn'],
         ],
     ]); ?>

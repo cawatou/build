@@ -32,7 +32,7 @@ $this->title = 'Каталог товара';
                                     <a href="/catalog/item/<?=$item->id?>" class="woocommerce-LoopProduct-link">
                                         <div class="img-wrap">
                                             <img width="486" height="486"
-                                               src="/images/shop/11.jpg"
+                                               src="<?=($item->img != 'none')? $item->img : '/images/shop/11.jpg'?>"
                                                class="attachment-shop_catalog size-shop_catalog wp-post-image"
                                                alt="<?=$item->title?>" title="<?=$item->title?>"                                                                   
                                                sizes="(max-width: 486px) 100vw, 486px"/>

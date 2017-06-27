@@ -65,3 +65,8 @@ body.background-img{background-size:cover; background-attachment:fixed;}
 div.product p.price {
 	color: #e74c3c;
 }
+
+ul.products li.product a img, -page ul.products li.product a img {
+	width: 243px;
+	height: 243px;
+}
